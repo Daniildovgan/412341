@@ -1,0 +1,27 @@
+#include <iostream>
+
+bool hasDuplicateDigits(int num) {
+    bool digits[10] = { false };
+
+    while (num > 0) {
+        int digit = num % 10;
+        if (digits[digit]) {
+            return true;
+        }
+        digits[digit] = true;
+        num /= 10;
+    }
+
+    return false;
+}
+
+int main() {
+    int count = 0;
+
+    for (int i = 100; i < 1000; ++i) {
+        if (hasDuplicateDigits(i)) {
+            count++;
+        }
+    }
+
+    std::cout

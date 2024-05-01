@@ -1,0 +1,46 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+int main() {
+    srand(time(0));
+
+    const int minNumber = 1;
+    const int maxNumber = 500;
+    const int secretNumber = rand() % (maxNumber - minNumber + 1) + minNumber;
+
+    std::cout << "Гра 'Вгадай число'!\n";
+    std::cout << "Загадано число в діапазоні від " << minNumber << " до " << maxNumber << ".\n";
+
+    int attempts;
+    clock_t startTime = clock();
+
+    for (attempts = 1; ; attempts++) {
+        int guess;
+        std::cout << "Спробуйте вгадати число (або введіть 0 для виходу): ";
+        std::cin >> guess;
+
+        if (guess == 0) {
+            std::cout << "Гра завершена. Ви вийшли з гри.\n";
+            break;
+        } else if (guess < minNumber || guess > maxNumber) {
+            std::cout << "Ваше число не знаходиться у вказаному діапазоні. Будь ласка, введіть число від " << minNumber << " до " << maxNumber << ".\n";
+            continue;
+        }
+
+        if (guess < secretNumber) {
+            std::cout << "Загадане число більше.\n";
+        } else if (guess > secretNumber) {
+            std::cout << "Загадане число менше.\n";
+        } else {
+            std::cout << "Вітаємо! Ви вгадали число " << secretNumber << " за " << attempts << " спроб.\n";
+            break;
+        }
+    }
+
+    clock_t endTime = clock();
+    double totalTime = static_cast<double>(endTime - startTime) / CLOCKS_PER_SEC;
+    std::cout << "Гра зайняла " << totalTime << " секунд.\n";
+
+    return 0;
+}

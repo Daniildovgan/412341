@@ -1,0 +1,29 @@
+#include <iostream>
+
+bool hasUniqueDigits(int num) {
+    bool digits[10] = { false };
+
+    for (; num > 0; num /= 10) {
+        int digit = num % 10;
+        if (digits[digit]) {
+            return false;
+        }
+        digits[digit] = true;
+    }
+
+    return true;
+}
+
+int main() {
+    int count = 0;
+
+    for (int i = 100; i < 1000; ++i) {
+        if (hasUniqueDigits(i)) {
+            count++;
+        }
+    }
+
+    std::cout << "Кількість цілих чисел у діапазоні від 100 до 999, у яких усі цифри різні: " << count << std::endl;
+
+    return 0;
+}

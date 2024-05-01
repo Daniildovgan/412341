@@ -1,0 +1,17 @@
+#include <iostream>
+
+int main() {
+    int num1, num2;
+    std::cout << "Введіть два цілих числа через пробіл: ";
+    std::cin >> num1 >> num2;
+
+    std::cout << "Цілі числа, на які обидва введених числа діляться без залишку: " << std::endl;
+
+    for (int i = 1; i <= std::min(abs(num1), abs(num2)); ++i) {
+        if (num1 % i == 0 && num2 % i == 0) {
+            std::cout << i << std::endl;
+        }
+    }
+
+    return 0;
+}

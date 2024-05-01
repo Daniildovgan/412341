@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    int number;
+    std::cout << "Введіть ціле число: ";
+    std::cin >> number;
+
+    std::string result = "";
+    std::string strNumber = std::to_string(number);
+
+    for (char digit : strNumber) {
+        if (digit != '3' && digit != '6') {
+            result += digit;
+        }
+    }
+
+    if (result.empty()) {
+        std::cout << "Після видалення цифр 3 і 6 не залишилося жодних цифр." << std::endl;
+    } else {
+        std::cout << "Результат: " << result << std::endl;
+    }
+
+    return 0;
+}

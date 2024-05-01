@@ -1,0 +1,38 @@
+#include <iostream>
+
+double usdToEur(double usd) {
+    return usd * 0.85;
+}
+
+double eurToUsd(double eur) {
+    return eur * 1.18;
+}
+
+int main() {
+    int choice;
+    double amount;
+
+    std::cout << "Оберіть операцію:\n";
+    std::cout << "1. Конвертувати USD в EUR\n";
+    std::cout << "2. Конвертувати EUR в USD\n";
+    std::cout << "Ваш вибір: ";
+    std::cin >> choice;
+
+    switch (choice) {
+        case 1:
+            std::cout << "Введіть суму в USD: ";
+            std::cin >> amount;
+            std::cout << "Результат конвертації: " << usdToEur(amount) << " EUR\n";
+            break;
+        case 2:
+            std::cout << "Введіть суму в EUR: ";
+            std::cin >> amount;
+            std::cout << "Результат конвертації: " << eurToUsd(amount) << " USD\n";
+            break;
+        default:
+            std::cout << "Неправильний вибір опції!\n";
+            break;
+    }
+
+    return 0;
+}

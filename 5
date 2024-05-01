@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cmath>
+
+int sumOfDigits(int number) {
+    int sum = 0;
+    while (number != 0) {
+        sum += number % 10;
+        number /= 10;
+    }
+    return sum;
+}
+
+int main() {
+    int A;
+    std::cout << "Введіть ціле число A: ";
+    std::cin >> A;
+
+    int sum = sumOfDigits(abs(A));
+    int cubeSum = sum * sum * sum;
+
+    if (cubeSum == A * A) {
+        std::cout << "Куб суми цифр числа " << A << " дорівнює " << A << "*" << A << " = " << cubeSum << std::endl;
+    } else {
+        std::cout << "Куб суми цифр числа " << A << " не дорівнює " << A << "*" << A << std::endl;
+    }
+
+    return 0;
+}
